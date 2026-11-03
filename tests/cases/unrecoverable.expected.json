@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "locks": [
+      "L1",
+      "L2"
+    ],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [
+          "L1"
+        ],
+        "waiting_for": "L2",
+        "can_abort": false,
+        "rollback_cost": 1
+      },
+      {
+        "id": "B",
+        "held_locks": [
+          "L2"
+        ],
+        "waiting_for": "L1",
+        "can_abort": false,
+        "rollback_cost": 2
+      }
+    ]
+  },
+  "status": "unrecoverable_under_model",
+  "wait_for_edges": [
+    {
+      "waiter": "A",
+      "holder": "B",
+      "lock": "L2"
+    },
+    {
+      "waiter": "B",
+      "holder": "A",
+      "lock": "L1"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "A",
+    "B"
+  ],
+  "blocked_behind_cycles": [],
+  "plan": null,
+  "total_rollback_cost": null,
+  "explanation": "Unrecoverable under this model: at least one cycle has no abortable member; no complete plan or cost is available."
+}

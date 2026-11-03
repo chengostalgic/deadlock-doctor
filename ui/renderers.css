@@ -1,0 +1,6 @@
+.doctor { display: grid; gap: 12px; color: var(--text); font-family: var(--sans); }
+.doctor > .pill { justify-self: start; }
+.doctor .summary { border-left: 3px solid #82b3dd; padding: 10px 14px; background: var(--surface); border-radius: 4px; }
+.doctor .plan, .doctor .disclosure-body { display: grid; gap: 10px; }
+.doctor .unrecoverable { border-left: 3px solid #d58e87; padding-left: 12px; }
+.doctor li, .doctor p { overflow-wrap: anywhere; }

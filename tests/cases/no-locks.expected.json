@@ -1,0 +1,26 @@
+{
+  "snapshot": {
+    "locks": [],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [],
+        "waiting_for": null,
+        "can_abort": false,
+        "rollback_cost": 1
+      }
+    ]
+  },
+  "status": "no_deadlock",
+  "wait_for_edges": [],
+  "cycles": [],
+  "cycle_members": [],
+  "blocked_behind_cycles": [],
+  "plan": {
+    "victims": [],
+    "released_locks": [],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 0,
+  "explanation": "No deadlock: the snapshot has no directed cycle; no rollback is needed (total cost 0)."
+}

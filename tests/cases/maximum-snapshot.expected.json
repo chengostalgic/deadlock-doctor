@@ -1,0 +1,337 @@
+{
+  "snapshot": {
+    "locks": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+      "L20",
+      "L21",
+      "L22",
+      "L23"
+    ],
+    "threads": [
+      {
+        "id": "T00",
+        "held_locks": [
+          "L00",
+          "L01"
+        ],
+        "waiting_for": "L00",
+        "can_abort": true,
+        "rollback_cost": 1
+      },
+      {
+        "id": "T01",
+        "held_locks": [
+          "L02",
+          "L03"
+        ],
+        "waiting_for": "L02",
+        "can_abort": true,
+        "rollback_cost": 2
+      },
+      {
+        "id": "T02",
+        "held_locks": [
+          "L04",
+          "L05"
+        ],
+        "waiting_for": "L04",
+        "can_abort": true,
+        "rollback_cost": 3
+      },
+      {
+        "id": "T03",
+        "held_locks": [
+          "L06",
+          "L07"
+        ],
+        "waiting_for": "L06",
+        "can_abort": true,
+        "rollback_cost": 4
+      },
+      {
+        "id": "T04",
+        "held_locks": [
+          "L08",
+          "L09"
+        ],
+        "waiting_for": "L08",
+        "can_abort": true,
+        "rollback_cost": 5
+      },
+      {
+        "id": "T05",
+        "held_locks": [
+          "L10",
+          "L11"
+        ],
+        "waiting_for": "L10",
+        "can_abort": true,
+        "rollback_cost": 6
+      },
+      {
+        "id": "T06",
+        "held_locks": [
+          "L12",
+          "L13"
+        ],
+        "waiting_for": "L12",
+        "can_abort": true,
+        "rollback_cost": 7
+      },
+      {
+        "id": "T07",
+        "held_locks": [
+          "L14",
+          "L15"
+        ],
+        "waiting_for": "L14",
+        "can_abort": true,
+        "rollback_cost": 8
+      },
+      {
+        "id": "T08",
+        "held_locks": [
+          "L16",
+          "L17"
+        ],
+        "waiting_for": "L16",
+        "can_abort": true,
+        "rollback_cost": 9
+      },
+      {
+        "id": "T09",
+        "held_locks": [
+          "L18",
+          "L19"
+        ],
+        "waiting_for": "L18",
+        "can_abort": true,
+        "rollback_cost": 10
+      },
+      {
+        "id": "T10",
+        "held_locks": [
+          "L20",
+          "L21"
+        ],
+        "waiting_for": "L20",
+        "can_abort": true,
+        "rollback_cost": 11
+      },
+      {
+        "id": "T11",
+        "held_locks": [
+          "L22",
+          "L23"
+        ],
+        "waiting_for": "L22",
+        "can_abort": true,
+        "rollback_cost": 12
+      }
+    ]
+  },
+  "status": "recovery_plan",
+  "wait_for_edges": [
+    {
+      "waiter": "T00",
+      "holder": "T00",
+      "lock": "L00"
+    },
+    {
+      "waiter": "T01",
+      "holder": "T01",
+      "lock": "L02"
+    },
+    {
+      "waiter": "T02",
+      "holder": "T02",
+      "lock": "L04"
+    },
+    {
+      "waiter": "T03",
+      "holder": "T03",
+      "lock": "L06"
+    },
+    {
+      "waiter": "T04",
+      "holder": "T04",
+      "lock": "L08"
+    },
+    {
+      "waiter": "T05",
+      "holder": "T05",
+      "lock": "L10"
+    },
+    {
+      "waiter": "T06",
+      "holder": "T06",
+      "lock": "L12"
+    },
+    {
+      "waiter": "T07",
+      "holder": "T07",
+      "lock": "L14"
+    },
+    {
+      "waiter": "T08",
+      "holder": "T08",
+      "lock": "L16"
+    },
+    {
+      "waiter": "T09",
+      "holder": "T09",
+      "lock": "L18"
+    },
+    {
+      "waiter": "T10",
+      "holder": "T10",
+      "lock": "L20"
+    },
+    {
+      "waiter": "T11",
+      "holder": "T11",
+      "lock": "L22"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "T00"
+      ]
+    },
+    {
+      "members": [
+        "T01"
+      ]
+    },
+    {
+      "members": [
+        "T02"
+      ]
+    },
+    {
+      "members": [
+        "T03"
+      ]
+    },
+    {
+      "members": [
+        "T04"
+      ]
+    },
+    {
+      "members": [
+        "T05"
+      ]
+    },
+    {
+      "members": [
+        "T06"
+      ]
+    },
+    {
+      "members": [
+        "T07"
+      ]
+    },
+    {
+      "members": [
+        "T08"
+      ]
+    },
+    {
+      "members": [
+        "T09"
+      ]
+    },
+    {
+      "members": [
+        "T10"
+      ]
+    },
+    {
+      "members": [
+        "T11"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "T00",
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11"
+  ],
+  "blocked_behind_cycles": [],
+  "plan": {
+    "victims": [
+      "T00",
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11"
+    ],
+    "released_locks": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+      "L20",
+      "L21",
+      "L22",
+      "L23"
+    ],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 78,
+  "explanation": "Rollback T00, T01, T02, T03, T04, T05, T06, T07, T08, T09, T10, T11 for total cost 78; release L00, L01, L02, L03, L04, L05, L06, L07, L08, L09, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23 to break every current cycle."
+}

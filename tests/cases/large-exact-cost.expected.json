@@ -1,0 +1,71 @@
+{
+  "snapshot": {
+    "locks": [
+      "L1",
+      "L2"
+    ],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [
+          "L1"
+        ],
+        "waiting_for": "L1",
+        "can_abort": true,
+        "rollback_cost": 1000000000000000000000000000000000000000000000000000000000001
+      },
+      {
+        "id": "B",
+        "held_locks": [
+          "L2"
+        ],
+        "waiting_for": "L2",
+        "can_abort": true,
+        "rollback_cost": 1000000000000000000000000000000000000000000000000000000000001
+      }
+    ]
+  },
+  "status": "recovery_plan",
+  "wait_for_edges": [
+    {
+      "waiter": "A",
+      "holder": "A",
+      "lock": "L1"
+    },
+    {
+      "waiter": "B",
+      "holder": "B",
+      "lock": "L2"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "A"
+      ]
+    },
+    {
+      "members": [
+        "B"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "A",
+    "B"
+  ],
+  "blocked_behind_cycles": [],
+  "plan": {
+    "victims": [
+      "A",
+      "B"
+    ],
+    "released_locks": [
+      "L1",
+      "L2"
+    ],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 2000000000000000000000000000000000000000000000000000000000002,
+  "explanation": "Rollback A, B for total cost 2000000000000000000000000000000000000000000000000000000000002; release L1, L2 to break every current cycle."
+}

@@ -1,0 +1,15 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Find the deadlock. Choose the cheapest safe rollback."
+summary: >-
+  Describe a hypothetical mutex snapshot and identify every deadlock cycle.
+  Separate cycle members from threads waiting behind them, then calculate a
+  minimum-cost rollback plan using only the threads you explicitly permit.
+highlights:
+  - "Detect every cycle, including non-reentrant self-deadlocks."
+  - "Distinguish deadlocked threads from dependent blocked threads."
+  - "Find the cheapest permitted complete recovery, with deterministic ties."
+  - "Check the plan independently against every abortable-thread subset."
+steps:
+  - "List all locks and each thread's holdings, request, rollback permission, and cost."
+  - "Inspect the wait-for edges, cycles, and proposed recovery."
+  - "Review released locks and the remaining snapshot, or why no complete plan exists."

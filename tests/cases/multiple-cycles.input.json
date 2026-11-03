@@ -1,0 +1,56 @@
+{
+  "locks": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+  ],
+  "threads": [
+    {
+      "id": "A",
+      "held_locks": [
+        "L1"
+      ],
+      "waiting_for": "L2",
+      "can_abort": true,
+      "rollback_cost": 3
+    },
+    {
+      "id": "B",
+      "held_locks": [
+        "L2"
+      ],
+      "waiting_for": "L1",
+      "can_abort": true,
+      "rollback_cost": 2
+    },
+    {
+      "id": "C",
+      "held_locks": [
+        "L3"
+      ],
+      "waiting_for": "L4",
+      "can_abort": true,
+      "rollback_cost": 1
+    },
+    {
+      "id": "D",
+      "held_locks": [
+        "L4"
+      ],
+      "waiting_for": "L3",
+      "can_abort": true,
+      "rollback_cost": 7
+    },
+    {
+      "id": "E",
+      "held_locks": [
+        "L5"
+      ],
+      "waiting_for": "L5",
+      "can_abort": true,
+      "rollback_cost": 4
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "snapshot": {
+    "locks": [
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [
+          "L1"
+        ],
+        "waiting_for": "L2",
+        "can_abort": true,
+        "rollback_cost": 2
+      },
+      {
+        "id": "Z",
+        "held_locks": [
+          "L2"
+        ],
+        "waiting_for": "L1",
+        "can_abort": true,
+        "rollback_cost": 2
+      },
+      {
+        "id": "B",
+        "held_locks": [
+          "L3"
+        ],
+        "waiting_for": "L4",
+        "can_abort": true,
+        "rollback_cost": 2
+      },
+      {
+        "id": "C",
+        "held_locks": [
+          "L4"
+        ],
+        "waiting_for": "L3",
+        "can_abort": true,
+        "rollback_cost": 2
+      }
+    ]
+  },
+  "status": "recovery_plan",
+  "wait_for_edges": [
+    {
+      "waiter": "A",
+      "holder": "Z",
+      "lock": "L2"
+    },
+    {
+      "waiter": "B",
+      "holder": "C",
+      "lock": "L4"
+    },
+    {
+      "waiter": "C",
+      "holder": "B",
+      "lock": "L3"
+    },
+    {
+      "waiter": "Z",
+      "holder": "A",
+      "lock": "L1"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "A",
+        "Z"
+      ]
+    },
+    {
+      "members": [
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "A",
+    "B",
+    "C",
+    "Z"
+  ],
+  "blocked_behind_cycles": [],
+  "plan": {
+    "victims": [
+      "A",
+      "B"
+    ],
+    "released_locks": [
+      "L1",
+      "L3"
+    ],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 4,
+  "explanation": "Rollback A, B for total cost 4; release L1, L3 to break every current cycle."
+}

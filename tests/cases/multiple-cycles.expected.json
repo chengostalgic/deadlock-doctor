@@ -1,0 +1,128 @@
+{
+  "snapshot": {
+    "locks": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5"
+    ],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [
+          "L1"
+        ],
+        "waiting_for": "L2",
+        "can_abort": true,
+        "rollback_cost": 3
+      },
+      {
+        "id": "B",
+        "held_locks": [
+          "L2"
+        ],
+        "waiting_for": "L1",
+        "can_abort": true,
+        "rollback_cost": 2
+      },
+      {
+        "id": "C",
+        "held_locks": [
+          "L3"
+        ],
+        "waiting_for": "L4",
+        "can_abort": true,
+        "rollback_cost": 1
+      },
+      {
+        "id": "D",
+        "held_locks": [
+          "L4"
+        ],
+        "waiting_for": "L3",
+        "can_abort": true,
+        "rollback_cost": 7
+      },
+      {
+        "id": "E",
+        "held_locks": [
+          "L5"
+        ],
+        "waiting_for": "L5",
+        "can_abort": true,
+        "rollback_cost": 4
+      }
+    ]
+  },
+  "status": "recovery_plan",
+  "wait_for_edges": [
+    {
+      "waiter": "A",
+      "holder": "B",
+      "lock": "L2"
+    },
+    {
+      "waiter": "B",
+      "holder": "A",
+      "lock": "L1"
+    },
+    {
+      "waiter": "C",
+      "holder": "D",
+      "lock": "L4"
+    },
+    {
+      "waiter": "D",
+      "holder": "C",
+      "lock": "L3"
+    },
+    {
+      "waiter": "E",
+      "holder": "E",
+      "lock": "L5"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "members": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "members": [
+        "E"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "blocked_behind_cycles": [],
+  "plan": {
+    "victims": [
+      "B",
+      "C",
+      "E"
+    ],
+    "released_locks": [
+      "L2",
+      "L3",
+      "L5"
+    ],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 7,
+  "explanation": "Rollback B, C, E for total cost 7; release L2, L3, L5 to break every current cycle."
+}

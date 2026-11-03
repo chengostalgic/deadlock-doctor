@@ -1,0 +1,35 @@
+{
+  "locks": [
+    "L1",
+    "L2",
+    "Spare"
+  ],
+  "threads": [
+    {
+      "id": "A",
+      "held_locks": [
+        "Spare",
+        "L1"
+      ],
+      "waiting_for": "L2",
+      "can_abort": true,
+      "rollback_cost": 1
+    },
+    {
+      "id": "B",
+      "held_locks": [
+        "L2"
+      ],
+      "waiting_for": "L1",
+      "can_abort": true,
+      "rollback_cost": 10
+    },
+    {
+      "id": "C",
+      "held_locks": [],
+      "waiting_for": "Spare",
+      "can_abort": true,
+      "rollback_cost": 15
+    }
+  ]
+}

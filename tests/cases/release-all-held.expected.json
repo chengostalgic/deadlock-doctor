@@ -1,0 +1,82 @@
+{
+  "snapshot": {
+    "locks": [
+      "L1",
+      "L2",
+      "Spare"
+    ],
+    "threads": [
+      {
+        "id": "A",
+        "held_locks": [
+          "Spare",
+          "L1"
+        ],
+        "waiting_for": "L2",
+        "can_abort": true,
+        "rollback_cost": 1
+      },
+      {
+        "id": "B",
+        "held_locks": [
+          "L2"
+        ],
+        "waiting_for": "L1",
+        "can_abort": true,
+        "rollback_cost": 10
+      },
+      {
+        "id": "C",
+        "held_locks": [],
+        "waiting_for": "Spare",
+        "can_abort": true,
+        "rollback_cost": 15
+      }
+    ]
+  },
+  "status": "recovery_plan",
+  "wait_for_edges": [
+    {
+      "waiter": "A",
+      "holder": "B",
+      "lock": "L2"
+    },
+    {
+      "waiter": "B",
+      "holder": "A",
+      "lock": "L1"
+    },
+    {
+      "waiter": "C",
+      "holder": "A",
+      "lock": "Spare"
+    }
+  ],
+  "cycles": [
+    {
+      "members": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "cycle_members": [
+    "A",
+    "B"
+  ],
+  "blocked_behind_cycles": [
+    "C"
+  ],
+  "plan": {
+    "victims": [
+      "A"
+    ],
+    "released_locks": [
+      "L1",
+      "Spare"
+    ],
+    "remaining_edges": []
+  },
+  "total_rollback_cost": 1,
+  "explanation": "Rollback A for total cost 1; release L1, Spare to break every current cycle."
+}

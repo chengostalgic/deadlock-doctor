@@ -1,0 +1,12 @@
+{
+  "locks": [],
+  "threads": [
+    {
+      "id": "A",
+      "held_locks": [],
+      "waiting_for": null,
+      "can_abort": false,
+      "rollback_cost": 1
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "locks": [
+    "L00",
+    "L01",
+    "L02",
+    "L03",
+    "L04",
+    "L05",
+    "L06",
+    "L07",
+    "L08",
+    "L09",
+    "L10",
+    "L11",
+    "L12",
+    "L13",
+    "L14",
+    "L15",
+    "L16",
+    "L17",
+    "L18",
+    "L19",
+    "L20",
+    "L21",
+    "L22",
+    "L23"
+  ],
+  "threads": [
+    {
+      "id": "T00",
+      "held_locks": [
+        "L00",
+        "L01"
+      ],
+      "waiting_for": "L00",
+      "can_abort": true,
+      "rollback_cost": 1
+    },
+    {
+      "id": "T01",
+      "held_locks": [
+        "L02",
+        "L03"
+      ],
+      "waiting_for": "L02",
+      "can_abort": true,
+      "rollback_cost": 2
+    },
+    {
+      "id": "T02",
+      "held_locks": [
+        "L04",
+        "L05"
+      ],
+      "waiting_for": "L04",
+      "can_abort": true,
+      "rollback_cost": 3
+    },
+    {
+      "id": "T03",
+      "held_locks": [
+        "L06",
+        "L07"
+      ],
+      "waiting_for": "L06",
+      "can_abort": true,
+      "rollback_cost": 4
+    },
+    {
+      "id": "T04",
+      "held_locks": [
+        "L08",
+        "L09"
+      ],
+      "waiting_for": "L08",
+      "can_abort": true,
+      "rollback_cost": 5
+    },
+    {
+      "id": "T05",
+      "held_locks": [
+        "L10",
+        "L11"
+      ],
+      "waiting_for": "L10",
+      "can_abort": true,
+      "rollback_cost": 6
+    },
+    {
+      "id": "T06",
+      "held_locks": [
+        "L12",
+        "L13"
+      ],
+      "waiting_for": "L12",
+      "can_abort": true,
+      "rollback_cost": 7
+    },
+    {
+      "id": "T07",
+      "held_locks": [
+        "L14",
+        "L15"
+      ],
+      "waiting_for": "L14",
+      "can_abort": true,
+      "rollback_cost": 8
+    },
+    {
+      "id": "T08",
+      "held_locks": [
+        "L16",
+        "L17"
+      ],
+      "waiting_for": "L16",
+      "can_abort": true,
+      "rollback_cost": 9
+    },
+    {
+      "id": "T09",
+      "held_locks": [
+        "L18",
+        "L19"
+      ],
+      "waiting_for": "L18",
+      "can_abort": true,
+      "rollback_cost": 10
+    },
+    {
+      "id": "T10",
+      "held_locks": [
+        "L20",
+        "L21"
+      ],
+      "waiting_for": "L20",
+      "can_abort": true,
+      "rollback_cost": 11
+    },
+    {
+      "id": "T11",
+      "held_locks": [
+        "L22",
+        "L23"
+      ],
+      "waiting_for": "L22",
+      "can_abort": true,
+      "rollback_cost": 12
+    }
+  ]
+}
